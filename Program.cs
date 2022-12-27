@@ -14,24 +14,7 @@ string[] FillArray(int size)
     return array;
 }
 
-string[] SelectArrayElements(string[] inputArray, int size)
-{
-    string[] outArray = new string[size];
-    int j = 0;
-    for (int i = 0; i < size; i++)
-    {
-        if (inputArray[i].Length < 4)
-        {
-            outArray[j] = inputArray[i];
-            j++;
-        }
-    }
-    string[] outArray1 = new string[j];
-    Array.Copy(outArray, 0, outArray1, 0, j);
-
-    return outArray1;
-}
 string[] array = FillArray(n);
 Console.WriteLine($"Получившийся массив: [{string.Join(" , ", array)}]");
-string[] array2 = SelectArrayElements(array, n);
+string[] array2 = Array.FindAll(array, s => s.Length < 4);
 Console.WriteLine($"Получившийся массив: [{string.Join(" , ", array2)}]");
